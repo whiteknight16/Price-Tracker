@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 URL="https://www.amazon.in/Apple-MacBook-Laptop-12%E2%80%91core-30%E2%80%91core/dp/B0BSJ3FD8W/ref=sr_1_3?keywords=laptop&refinements=p_36%3A20000000-&rnid=7252027031&sr=8-3"
 HEADER_URL="https://myhttpheader.com/"
-PRICE_YOU_WANT_TO_BUY_AT=400000
+PRICE_YOU_WANT_TO_BUY_AT=4000
 header_data=requests.get(HEADER_URL)
 
 data=requests.get(URL).text
@@ -30,7 +30,7 @@ my_mail="YOUR EMAIL"
 with smtplib.SMTP("smtp.gmail.com",port=587) as connection:
                 connection.starttls()
                 connection.login(user=my_mail,password="YOUR PASSWORD FOR APP")
-                connection.sendmail(from_addr=my_mail,to_addrs=my_mail,msg=f"Subject:Price Drop Alert\n\n{title.encode('utf-8')} is available at {PRICE_YOU_WANT_TO_BUY_AT}you can check it out at {URL}")
+                connection.sendmail(from_addr=my_mail,to_addrs=my_mail,msg=f"Subject:Price Drop Alert\n\n{title.encode('utf-8')} is available below {PRICE_YOU_WANT_TO_BUY_AT}you can check it out at {URL}")
                 connection.close() 
 
 
